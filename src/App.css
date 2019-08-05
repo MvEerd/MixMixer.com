@@ -1,33 +1,64 @@
+iframe {
+  border: 0px;
+  overflow: hidden;
+}
+
+html,
+body,
+#root,
 .App {
-  text-align: center;
+  width: 100%;
+  height: 100%;
+  color: #cacaca;
+  background: #212c3d;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  display: flex;
+  overflow: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#streams iframe {
+  float: left;
+  transition: transform 0s ease, height 125ms linear, width 125ms linear,
+    max-width 125ms linear, max-height 125ms linear;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  background-color: #000000;
+}
+
+#streams {
+  flex: 1 1;
+}
+
+#chats {
+  flex: 0 1 20%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-left: 1px solid #cacaca;
 }
 
-.App-link {
-  color: #61dafb;
+.tabLinks {
+  flex: 0 0 30px;
+  display: flex;
+  border-bottom: 1px solid #cacaca;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tabLink {
+  padding: 4px;
+  cursor: pointer;
+  color: #a7a7a7;
+  border-right: 2px solid #a7a7a7;
+}
+
+.tabLink.active {
+  font-weight: 600;
+  color: #cacaca;
+}
+
+.chatTab {
+  flex: 1 0;
 }
