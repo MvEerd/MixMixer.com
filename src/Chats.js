@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import TwitchLogo from "./img/twitch.svg";
+import MixerLogo from "./img/mixer.svg";
 
 class Chats extends Component {
   constructor(props) {
@@ -30,6 +32,11 @@ class Chats extends Component {
                   this.setState({ activeTab: i });
                 }}
               >
+                {twitch ? (
+                  <img height={21} src={TwitchLogo} />
+                ) : (
+                  <img height={21} src={MixerLogo} />
+                )}
                 {streamer}
               </div>
             );

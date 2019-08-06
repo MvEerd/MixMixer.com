@@ -19,7 +19,6 @@ body,
 }
 
 #streams iframe {
-  float: left;
   transition: transform 0s ease, height 125ms linear, width 125ms linear,
     max-width 125ms linear, max-height 125ms linear;
   -webkit-box-sizing: border-box;
@@ -28,35 +27,44 @@ body,
   border-right: 1px solid transparent;
   border-bottom: 1px solid transparent;
   background-color: #000000;
+  display: inline-block;
 }
 
 #streams {
   flex: 1 1;
+  text-align: center;
+  line-height: 0px;
 }
 
 #chats {
   flex: 0 1 20%;
   display: flex;
   flex-direction: column;
-  border-left: 1px solid #cacaca;
+  border-left: 5px solid #171e2a;
 }
 
 .tabLinks {
   flex: 0 0 30px;
   display: flex;
-  border-bottom: 1px solid #cacaca;
+  border-bottom: 5px solid #171e2a;
 }
 
 .tabLink {
   padding: 4px;
   cursor: pointer;
   color: #a7a7a7;
-  border-right: 2px solid #a7a7a7;
+  display: flex;
+  align-items: center;
+}
+
+.tabLink img {
+  margin-right: 2px;
 }
 
 .tabLink.active {
   font-weight: 600;
   color: #cacaca;
+  background: #171e2a;
 }
 
 .chatTab {
