@@ -96,14 +96,21 @@ class Streams extends Component {
     return (
       <div id="streams" ref={this.streamsElement}>
         {Object.keys(this.props.streamers).map(s => {
-          return this.props.streamers[s] ? (
+          if (!this.props.streamers[s]) return false;
+          return this.props.streamers[s].substr(0, 2) === "t:" ? (
+            <iframe
+              width={this.state.streams.width}
+              height={this.state.streams.height}
+              src={`https://player.twitch.tv/?channel=${this.props.streamers[
+                s
+              ].substr(2, this.props.streamers[s].length)}&muted=true`}
+            />
+          ) : (
             <iframe
               width={this.state.streams.width}
               height={this.state.streams.height}
               src={`https://mixer.com/embed/player/${this.props.streamers[s]}`}
             />
-          ) : (
-            false
           );
         })}
       </div>

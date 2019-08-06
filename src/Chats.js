@@ -13,20 +13,44 @@ class Chats extends Component {
       <div id="chats">
         <div className="tabLinks">
           {Object.keys(this.props.streamers).map((s, i) => {
-            return this.props.streamers[s] ? (
+            if (!this.props.streamers[s]) return false;
+            const twitch = this.props.streamers[s].substr(0, 2) === "t:";
+            const streamer = twitch
+              ? this.props.streamers[s].substr(
+                  2,
+                  this.props.streamers[s].length
+                )
+              : this.props.streamers[s];
+            return (
               <div
                 className={`tabLink ${
                   i === this.state.activeTab ? "active" : null
                 }`}
-                onClick={() => this.setState({ activeTab: i })}
+                onClick={() => {
+                  this.setState({ activeTab: i });
+                }}
               >
-                {this.props.streamers[s]}
+                {streamer}
               </div>
-            ) : null;
+            );
           })}
         </div>
         {Object.keys(this.props.streamers).map((s, i) => {
-          return this.props.streamers[s] ? (
+          if (!this.props.streamers[s]) return false;
+          return this.props.streamers[s].substr(0, 2) === "t:" ? (
+            <div
+              className="chatTab"
+              style={{ display: i !== this.state.activeTab ? "none" : "" }}
+            >
+              <iframe
+                src={`https://www.twitch.tv/embed/${this.props.streamers[
+                  s
+                ].substr(2, this.props.streamers[s].length)}/chat?darkpopout`}
+                width="100%"
+                height="100%"
+              />
+            </div>
+          ) : (
             <div
               className="chatTab"
               style={{ display: i !== this.state.activeTab ? "none" : "" }}
@@ -37,7 +61,7 @@ class Chats extends Component {
                 height="100%"
               />
             </div>
-          ) : null;
+          );
         })}
       </div>
     );
