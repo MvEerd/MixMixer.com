@@ -31,10 +31,11 @@ class App extends React.Component {
           className={`Splitview split-horizontal`}
           sizes={[85, 15]}
           gutterSize={10}
+          minSize={0}
           elementStyle={this.elementStyle}
           gutterStyle={this.gutterStyle}
           onDrag={this.onDrag}
-          snapOffset={30}
+          snapOffset={50}
         >
           <Streams className="split" streamers={streamers} />
           <Chats className="split" streamers={streamers} />
