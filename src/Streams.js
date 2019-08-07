@@ -83,18 +83,23 @@ class Streams extends Component {
 
   componentDidMount() {
     this.autoSizeStreams();
-    window.addEventListener("resize", this.autoSizeTimeout);
+    this.autoSizeTimeout(); //Currently needed due to react-split resizing the element after initialising without callback
+    window.addEventListener("resize", this.autoSizeStreams);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.autoSizeTimeout);
+    window.removeEventListener("resize", this.autoSizeStreams);
   }
 
   componentDidUpdate(prevProps) {}
 
   render() {
     return (
-      <div id="streams" ref={this.streamsElement}>
+      <div
+        id="streams"
+        className={this.props.className}
+        ref={this.streamsElement}
+      >
         {Object.keys(this.props.streamers).map(s => {
           if (!this.props.streamers[s]) return false;
           return this.props.streamers[s].substr(0, 2) === "t:" ? (

@@ -12,7 +12,7 @@ class Chats extends Component {
   }
   render() {
     return (
-      <div id="chats">
+      <div className={this.props.className} id="chats">
         <div className="tabLinks">
           {Object.keys(this.props.streamers).map((s, i) => {
             if (!this.props.streamers[s]) return false;

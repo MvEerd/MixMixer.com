@@ -18,9 +18,36 @@ body,
   overflow: hidden;
 }
 
+.Splitview {
+  display: flex;
+  flex: 1 0;
+}
+
+.Splitview.split-vertical {
+  flex-direction: column;
+}
+
+.Splitview.split-horizontal {
+  flex-direction: row;
+}
+
+.split {
+  box-sizing: border-box;
+  flex: 0 0;
+  overflow: hidden;
+}
+
+.Splitview.split-horizontal .gutter {
+  height: 100%;
+  cursor: ew-resize;
+}
+
+.Splitview.split-vertical .gutter {
+  width: 100%;
+  cursor: ns-resize;
+}
+
 #streams iframe {
-  transition: transform 0s ease, height 125ms linear, width 125ms linear,
-    max-width 125ms linear, max-height 125ms linear;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -40,7 +67,10 @@ body,
   flex: 0 1 20%;
   display: flex;
   flex-direction: column;
-  border-left: 5px solid #171e2a;
+}
+
+.gutter {
+  background-color: #171e2a;
 }
 
 .tabLinks {
