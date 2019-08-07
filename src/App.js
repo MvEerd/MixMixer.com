@@ -29,7 +29,7 @@ class App extends React.Component {
         <Split
           direction={"horizontal"}
           className={`Splitview split-horizontal`}
-          sizes={[75, 25]}
+          sizes={[85, 15]}
           gutterSize={10}
           elementStyle={this.elementStyle}
           gutterStyle={this.gutterStyle}

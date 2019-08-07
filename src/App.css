@@ -21,6 +21,7 @@ body,
 .Splitview {
   display: flex;
   flex: 1 0;
+  width: 100%;
 }
 
 .Splitview.split-vertical {
