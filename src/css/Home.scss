@@ -1,3 +1,5 @@
+@import "colors";
+
 * {
   box-sizing: border-box;
 }
@@ -46,19 +48,6 @@
       display: block;
     }
   }
-  .plusicon {
-    border: 1px solid green;
-    width: 50px;
-    height: 50px;
-    display: inline-flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    font-size: 40px;
-    color: green;
-    margin-bottom: 5px;
-  }
 }
 
 .btn {
@@ -76,14 +65,14 @@
   line-height: 14px;
   font-size: 14px;
   font-weight: 600;
-  background: #1fbaed;
+  background: $mixer-lightblue;
   color: #ffffff;
   margin: 0 auto;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   &:hover {
-    background: #37c4f3;
+    background: lighten($mixer-lightblue, 10%);
   }
   &:active {
-    background: #1fbaed;
+    background: darken($mixer-lightblue, 10%);
   }
 }

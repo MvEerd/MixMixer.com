@@ -1,7 +1,4 @@
-iframe {
-  border: 0px;
-  overflow: hidden;
-}
+@import "colors";
 
 html,
 body,
@@ -9,13 +6,18 @@ body,
 .App {
   width: 100%;
   height: 100%;
-  color: #cacaca;
-  background: #212c3d;
+  color: $textcolor;
+  background: $mixer-background;
   font-family: "Roboto", sans-serif;
 }
 
 .App {
   display: flex;
+  overflow: hidden;
+}
+
+iframe {
+  border: 0px;
   overflow: hidden;
 }
 
@@ -72,19 +74,19 @@ body,
 }
 
 .gutter {
-  background-color: #171e2a;
+  background-color: $mixer-darkblue;
 }
 
 .tabLinks {
   flex: 0 0 30px;
   display: flex;
-  border-bottom: 5px solid #171e2a;
+  border-bottom: 5px solid $mixer-darkblue;
 }
 
 .tabLink {
   padding: 4px;
   cursor: pointer;
-  color: #a7a7a7;
+  color: darken($textcolor, 20%);
   display: flex;
   align-items: center;
 }
@@ -95,8 +97,8 @@ body,
 
 .tabLink.active {
   font-weight: 600;
-  color: #cacaca;
-  background: #171e2a;
+  color: $textcolor;
+  background: $mixer-darkblue;
 }
 
 .chatTab {

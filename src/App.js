@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./css/App.scss";
 import Streams from "./Streams";
 import Chats from "./Chats";
 import Split from "react-split";

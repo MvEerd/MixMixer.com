@@ -1,3 +1,5 @@
+@import "colors";
+
 * {
   box-sizing: border-box;
 }
@@ -23,11 +25,25 @@ input:focus {
     z-index: 1;
     transition: background-color 250ms ease;
   }
-  .select.mixer.active {
-    background: #171e2a;
+  .select.mixer {
+    &.active {
+      background: $mixer-darkblue;
+    }
+    &:not(.active):hover {
+      background: scale-color(
+        $mixer-darkblue,
+        $saturation: -80%,
+        $lightness: +20%
+      );
+    }
   }
-  .select.twitch.active {
-    background: #6441a4;
+  .select.twitch {
+    &.active {
+      background: $twitch-purple;
+    }
+    &:not(.active):hover {
+      background: scale-color($twitch-purple, $saturation: -70%);
+    }
   }
   .select img {
     padding: 5px;
@@ -50,7 +66,7 @@ input:focus {
     margin-left: -5px;
     border: 2px solid transparent;
     &:focus {
-      border: 2px solid #1fbaed;
+      border: 2px solid $mixer-lightblue;
     }
   }
 }

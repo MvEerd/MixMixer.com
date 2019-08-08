@@ -26,7 +26,7 @@ class Chats extends Component {
             return (
               <div
                 className={`tabLink ${
-                  i === this.state.activeTab ? "active" : null
+                  i === this.state.activeTab ? "active" : ""
                 }`}
                 onClick={() => {
                   this.setState({ activeTab: i });
