@@ -46,6 +46,22 @@ class App extends React.Component {
     );
   };
 
+  onFocus = () => {
+    this.props.addStreamer(
+      this.props.index,
+      this.state.username ? this.state.username : "",
+      this.state.selected
+    );
+  };
+
+  onBlur = () => {
+    this.props.addStreamer(
+      this.props.index,
+      this.state.username ? this.state.username : undefined,
+      this.state.selected
+    );
+  };
+
   render() {
     return (
       <div
@@ -60,6 +76,8 @@ class App extends React.Component {
           value={this.state.username}
           onChange={this.inputChange}
           placeholder={`Username ${this.props.index + 1}`}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
         />
       </div>
     );

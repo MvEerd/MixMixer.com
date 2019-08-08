@@ -13,12 +13,19 @@ class App extends React.Component {
 
   addStreamer = (index, username, platform) => {
     var streamers = this.state.streamers;
-    if (username === "") {
+    if (username === null || username === undefined) {
       delete streamers[index];
       return this.setState({
         streamers
       });
     }
+    if (username === "") {
+      streamers[index] = username;
+      return this.setState({
+        streamers
+      });
+    }
+
     streamers[index] = platform === "twitch" ? `t:${username}` : username;
     this.setState({
       streamers
@@ -30,13 +37,21 @@ class App extends React.Component {
     const streamers = this.state.streamers;
 
     for (var i = 2; i < 8; i++) {
-      if (!streamers[i] && !streamers[i - 1] && !streamers[i + 1] && i > 2)
+      if (
+        streamers[i] === undefined &&
+        streamers[i - 1] === undefined &&
+        streamers[i + 1] === undefined &&
+        i > 2
+      )
         break;
+
       streamInputs.push(
         <StreamInput
           addStreamer={this.addStreamer}
           index={i}
-          inputClass={`${!streamers[i] ? "inputPlaceholder" : ""}`}
+          inputClass={`${
+            typeof streamers[i] === "undefined" ? "inputPlaceholder" : ""
+          }`}
           key={i}
         />
       );
