@@ -109,12 +109,14 @@ class Streams extends Component {
               src={`https://player.twitch.tv/?channel=${this.props.streamers[
                 s
               ].substr(2, this.props.streamers[s].length)}&muted=true`}
+              key={s}
             />
           ) : (
             <iframe
               width={this.state.streams.width}
               height={this.state.streams.height}
               src={`https://mixer.com/embed/player/${this.props.streamers[s]}`}
+              key={s}
             />
           );
         })}

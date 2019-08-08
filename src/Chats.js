@@ -31,6 +31,7 @@ class Chats extends Component {
                 onClick={() => {
                   this.setState({ activeTab: i });
                 }}
+                key={i}
               >
                 {twitch ? (
                   <img height={21} src={TwitchLogo} />
@@ -48,6 +49,7 @@ class Chats extends Component {
             <div
               className="chatTab"
               style={{ display: i !== this.state.activeTab ? "none" : "" }}
+              key={i}
             >
               <iframe
                 src={`https://www.twitch.tv/embed/${this.props.streamers[
@@ -61,6 +63,7 @@ class Chats extends Component {
             <div
               className="chatTab"
               style={{ display: i !== this.state.activeTab ? "none" : "" }}
+              key={i}
             >
               <iframe
                 src={`https://mixer.com/embed/chat/${this.props.streamers[s]}`}
